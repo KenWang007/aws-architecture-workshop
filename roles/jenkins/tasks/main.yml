@@ -17,5 +17,6 @@
         ASGMaxSize: "{{asg_max_size}}"
         ASGMinSize: "{{asg_min_size}}"
         SSLCertArn: "{{ssl_cert_arn}}"
+        ResourceBucketName: "{{resource_bucket_name}}"
       tags:
         Project: "{{project}}"
