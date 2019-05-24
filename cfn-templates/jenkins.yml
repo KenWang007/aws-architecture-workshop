@@ -29,6 +29,10 @@ Parameters:
     Type: Number
     Default: 1
 
+  SSLCertArn:
+    Description: Cetificate for domain.
+    Type: String
+
 Resources:
   LoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -68,6 +72,18 @@ Resources:
         Ref: LoadBalancer
       Port: 80
       Protocol: HTTP
+
+  ALBHTPPSListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref LoadBalancer
+      Port: 443
+      Protocol: HTTPS
+      DefaultActions:
+      - Type: forward
+        TargetGroupArn: !Ref ALBTargetGroup
+      Certificates:
+      - CertificateArn: !Ref SSLCertArn
 
   ALBTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup

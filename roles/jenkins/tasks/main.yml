@@ -16,5 +16,6 @@
         InstanceType: "{{instance_type}}"
         ASGMaxSize: "{{asg_max_size}}"
         ASGMinSize: "{{asg_min_size}}"
+        SSLCertArn: "{{ssl_cert_arn}}"
       tags:
         Project: "{{project}}"
