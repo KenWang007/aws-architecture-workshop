@@ -65,12 +65,8 @@ Resources:
               - cloudformation:Describe*
               - cloudformation:Get*
               - cloudformation:List*
-            Resource: '*'
-          - Effect: Allow
-            Action:
               - s3:*
-            Resource:
-              - !Sub 'arn:aws:s3:::${ResourceBucketName}/*'
+            Resource: '*'
 
   LoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
