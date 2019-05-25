@@ -62,12 +62,15 @@ Resources:
           Statement:
           - Effect: Allow
             Action:
-              - application-autoscaling:*
-              - cloudformation:*
-              - ec2:*
-              - s3:*
-              - sts:AssumeRole
+              - cloudformation:Describe*
+              - cloudformation:Get*
+              - cloudformation:List*
             Resource: '*'
+          - Effect: Allow
+            Action:
+              - s3:*
+            Resource:
+              - !Sub 'arn:aws:s3:::${ResourceBucketName}/*'
 
   LoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
